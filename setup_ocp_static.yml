@@ -50,11 +50,14 @@
         state: directory
         recurse: yes
       tags: test8
+################ Change templates from this task ################
     - name: Create install-config.yaml file
       template:
         src: templates/install-config-bare-metal.yml.j2
+        src: templates/install-config-vsphere.yaml.j2
         dest: "~/openshift/{{ CLUSTERID }}/install-config.yaml"
       tags: test9
+#################################################################
     - name: Create manifests file
       command: "openshift-install create manifests --dir ~/openshift/{{ CLUSTERID }}/"
       tags: test10
