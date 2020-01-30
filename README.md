@@ -7,7 +7,7 @@ I try writing ansible clearly and simply as I can for everyone.
 - Change template for bare-metal or VMware in setup_ocp_static.yml at task "Create install-config.yaml file"
 
 ## How to used
-- Check port firewall is open
+- Check ports on firewall is open
 
 \# ansible-playbook check_ports_open.yml
 
