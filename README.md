@@ -4,6 +4,7 @@ I try writing ansible clearly and simply as I can for everyone.
 ## setup
 - Config all variables in vars folder
 - Put your pull secret to folder files/pull-secret.json
+- Change template for bare-metal or VMware in setup_ocp_static.yml at task "Create install-config.yaml file"
 
 ## How to used
 - Check port firewall is open
