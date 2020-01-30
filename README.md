@@ -7,12 +7,15 @@ I try writing ansible clearly and simply as I can for everyone.
 
 ## How to used
 - Check port firewall is open
+
 \# ansible-playbook check_ports_open.yml
 
 - Check connection to whitelist url
+
 \# ansible-playbook check_whitelist_url.yml
 
 - Generate ignition file and iso for install OCP
+
 \# ansible-playbook setup_ocp_static.yml
 
 Note : When you run setup_ocp_static.yml all file will download to files directory
