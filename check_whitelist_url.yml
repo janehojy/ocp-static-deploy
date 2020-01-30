@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: False
+  vars_files:
+    - vars/whitelist_url.yml
+  tasks:
+    - name: Check connection to whitelist url
+      uri:
+        url: "http://{{ item }}"
+        validate_certs: no
+        status_code: 
+          - 200
+          - 403
+          - 503
+      loop: "{{ whitelist_url }}"

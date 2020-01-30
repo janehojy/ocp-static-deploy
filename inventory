@@ -1,0 +1,11 @@
+[local]
+localhost ansible_connection=local
+
+[bootstrap]
+#servera.example.com
+
+[master]
+#servera.example.com
+
+[worker]
+#servera.example.com

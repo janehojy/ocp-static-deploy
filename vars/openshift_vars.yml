@@ -1,0 +1,30 @@
+---
+openshift_major_version: 4.2
+openshift_minor_version: 4.2.0
+openshift_cli_minor_version: 4.2.16
+architecture: x86_64
+openshift_client_url:
+  - "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/{{ openshift_cli_minor_version }}/openshift-client-linux-{{ openshift_cli_minor_version }}.tar.gz"
+  - "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/{{ openshift_cli_minor_version }}/openshift-install-linux-{{ openshift_cli_minor_version }}.tar.gz"
+openshift_install_url:
+  - "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/{{ openshift_major_version }}/latest/rhcos-{{ openshift_minor_version }}-{{ architecture }}-installer.iso"
+#  - "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/{{ openshift_major_version }}/latest/rhcos-{{ openshift_minor_version }}-{{ architecture }}-installer-kernel"
+#  - "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/{{ openshift_major_version }}/latest/rhcos-{{ openshift_minor_version }}-{{ architecture }}-installer-initramfs.img"
+  - "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/{{ openshift_major_version }}/latest/rhcos-{{ openshift_minor_version }}-{{ architecture }}-metal-bios.raw.gz"
+  - "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/{{ openshift_major_version }}/latest/rhcos-{{ openshift_minor_version }}-{{ architecture }}-metal.raw.gz"
+openshift_client_file:
+  - "files/openshift-client-linux-{{ openshift_cli_minor_version }}.tar.gz"
+  - "files/openshift-install-linux-{{ openshift_cli_minor_version }}.tar.gz"
+
+DOMAIN: example.com
+CLUSTERID: ocp4
+CLUSTER_NETWORK: 10.128.0.0/14
+CLUSTER_NETWORK_HOSTPREFIX: 23
+SERVICE_NETWORK: 172.30.0.0/16
+VCENTER_SERVER: vsphere.example.com
+VCENTER_USER: "administrator@vsphere.local"
+VCENTER_PASS: 'supersecretpassword'
+VCENTER_DC: DC1
+VCENTER_DS: datastore1
+PULL_SECRET: "{{ lookup('file', '../files/pull-secret.json') }}"
+OCP_SSH_KEY: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

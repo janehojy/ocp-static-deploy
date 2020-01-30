@@ -1,0 +1,28 @@
+apiVersion: v1
+baseDomain: {{ DOMAIN }}
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: {{ CLUSTERID }}
+networking:
+  clusterNetworks:
+  - cidr: {{ CLUSTER_NETWORK }}
+    hostPrefix: {{ CLUSTER_NETWORK_HOSTPREFIX }}
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - {{ SERVICE_NETWORK }} 
+platform:
+  vsphere:
+    vcenter: {{ VCENTER_SERVER }}
+    username: {{ VCENTER_USER }}
+    password: {{ VCENTER_PASS }}
+    datacenter: {{ VCENTER_DC }}
+    defaultDatastore: {{ VCENTER_DS }}
+pullSecret: {{ PULL_SECRET }}
+sshKey: '{{ OCP_SSH_KEY }}'

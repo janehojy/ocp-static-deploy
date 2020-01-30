@@ -1,0 +1,7 @@
+---
+- packages_list:
+    - git
+    - python3
+    - rsync
+    - mkisofs
+

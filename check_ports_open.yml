@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  vars_files:
+    - vars/ip_ports.yml
+  gather_facts: False
+  tasks:
+    - name: Check API port numbers are accessible from current host
+      command: /usr/bin/nc -zv -w 3 "{{ api_vip }}" "{{ item }}" 
+      ignore_errors: yes
+      loop: "{{ api_ports }}"
+      register: api_output
+    - name: test
+      debug: 
+        msg: "{{ item.stderr_lines }}"
+      loop: "{{ api_output.results }}"
+
+    - name: Check Ingress port numbers are accessible from current host
+      command: /usr/bin/nc -zv -w 3 "{{ ingress_vip }}" "{{ item }}"
+      ignore_errors: yes
+      loop: "{{ ingress_ports }}"
+      register: ingress_output
+    - name: test
+      debug:
+        msg: "{{ item.stderr_lines }}"
+      loop: "{{ ingress_output.results }}"

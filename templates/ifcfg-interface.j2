@@ -1,0 +1,12 @@
+BOOTPROTO=none
+DEFROUTE=yes
+DEVICE={{ interface_name }}
+ONBOOT=yes
+IPADDR={{ item.node_ip }}
+NETMASK={{ netmask }}
+GATEWAY={{ gateway }}
+PREFIX={{ prefix }}
+DNS1={{ dns1 }}
+DNS2={{ dns2 }}
+DOMAIN={{ domain }}
+IPV6INIT=no
